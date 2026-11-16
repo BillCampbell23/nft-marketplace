@@ -2,73 +2,42 @@
 
 Built during the Frontend Simplified virtual internship, on the FES starter ([hannamitri/nft-marketplace-starter](https://github.com/hannamitri/nft-marketplace-starter)). Live demo: https://fes-internship-six.vercel.app
 
-# Getting Started with Create React App
+The starter was a static React UI with hard-coded data. I turned it into a data-driven app that pulls every section from a REST API (Firebase Cloud Functions endpoints provided by the course), adding loading states, carousels, filtering, dynamic routes and scroll animations. Each feature shipped as its own pull request (#1 to #7).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
 
-## Available Scripts
+- **Hot Collections**: fetched from the API and shown in a responsive carousel, with skeleton loading
+- **New Items**: API data in a carousel with a live countdown timer on each item that has an expiry date (the timer hides once it runs out)
+- **Top Sellers**: seller list fetched from the API
+- **Explore page**: sorting by price (low to high, high to low) and most liked, done by the API rather than in the browser; shows 8 items, then "Load more" adds 4 at a time
+- **Author page** (`/author/:authorId`): profile and items fetched by route ID, with a follow/unfollow toggle that updates the follower count (client-side only; the API has no endpoint to save it)
+- **Item details page** (`/item-details/:nftId`): NFT fetched by route ID, with skeleton placeholders while it loads
+- **Shared NFT card component** reused across New Items, Explore and Author pages
+- **Scroll animations** with AOS (sections fade in once as they enter the viewport)
 
-In the project directory, you can run:
+## Tech stack
 
-### `npm start`
+| Tool | Version |
+|---|---|
+| React / React DOM | 17.0.2 |
+| React Router DOM | 6.2.2 |
+| Create React App (react-scripts) | 5.0.0 |
+| Axios | 1.20.0 |
+| React Alice Carousel | 2.9.1 |
+| AOS (animate on scroll) | 2.3.4 |
+| React Icons | 4.3.1 |
+| Bootstrap (CDN, from the starter) | 4.1 / 5.1 |
+| Hosting | Vercel |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Node:** 14 or newer (react-scripts 5's minimum). Built and tested on Node 24.14.1 with `npm ci && npm run build`; no extra flags needed.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting started
 
-### `npm test`
+```bash
+git clone https://github.com/OptimusDigitalSuite/nft-marketplace.git
+cd nft-marketplace
+npm install
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The app opens at http://localhost:3000. No environment variables are needed; the API endpoints are public.
