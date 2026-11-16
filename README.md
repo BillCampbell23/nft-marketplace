@@ -1,3 +1,7 @@
+# NFT Marketplace
+
+Built during the Frontend Simplified virtual internship, on the FES starter ([hannamitri/nft-marketplace-starter](https://github.com/hannamitri/nft-marketplace-starter)). Live demo: https://fes-internship-six.vercel.app
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
