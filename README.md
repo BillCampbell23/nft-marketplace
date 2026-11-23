@@ -34,7 +34,7 @@ The starter was a static React UI with hard-coded data. I turned it into a data-
 ## Getting started
 
 ```bash
-git clone https://github.com/OptimusDigitalSuite/nft-marketplace.git
+git clone https://github.com/BillCampbell23/nft-marketplace.git
 cd nft-marketplace
 npm install
 npm start
